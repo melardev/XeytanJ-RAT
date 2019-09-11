@@ -1,0 +1,7 @@
+com.melardev.xeytanj.services.logger.ConsoleLogger
+com.melardev.xeytanj.gui.mediator.swing.SwingMediator
+com.melardev.xeytanj.services.config.ConfigService
+com.melardev.xeytanj.services.ResourceBundleMessageProvider
+com.melardev.xeytanj.services.net.transport.p2p.P2PSyncTcpServerService
+com.melardev.xeytanj.services.data.FsJdbcStorage
+com.melardev.xeytanj.services.builder.JarClientBuilder
