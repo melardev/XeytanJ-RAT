@@ -18,7 +18,6 @@ import com.melardev.xeytanj.services.config.IConfigService;
 import com.melardev.xeytanj.services.data.IStorageService;
 import com.melardev.xeytanj.services.ioc.DependencyResolverFactory;
 import com.melardev.xeytanj.services.ioc.IAppDependencyResolver;
-import com.melardev.xeytanj.services.ioc.SpiResolver;
 import com.melardev.xeytanj.services.logger.ILogger;
 import com.melardev.xeytanj.services.net.INetworkServerService;
 import com.melardev.xeytanj.services.net.RemoteClient;
@@ -125,8 +124,8 @@ public class XeytanJApplication implements IApplication, MainUiListener, ClientI
     @Override
     public void onDisposeError(String message) {
         logger.traceCurrentMethodName();
-        //SpringBeansResolver serviceLocator = SpringBeansResolver.getInstance();
-        serviceLocator = SpiResolver.getInstance();
+
+        serviceLocator = DependencyResolverFactory.getDependencyResolver();
         mediator = serviceLocator.lookup(IUiMediator.class);
         mediator.showDialogMessageError(message);
     }

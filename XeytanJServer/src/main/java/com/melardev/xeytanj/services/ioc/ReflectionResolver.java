@@ -4,7 +4,7 @@ import com.melardev.xeytanj.services.IService;
 
 import java.util.List;
 
-public class ReflectionResolver implements IAppDependencyResolver {
+class ReflectionResolver implements IAppDependencyResolver {
 
     //TODO: Implement this
 

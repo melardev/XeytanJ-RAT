@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ServiceLoader;
 
-public class SpiResolver implements IAppDependencyResolver {
+class SpiResolver implements IAppDependencyResolver {
     private static SpiResolver self;
     private ArrayList<IService> services;
 
@@ -17,12 +17,14 @@ public class SpiResolver implements IAppDependencyResolver {
     @Override
     public List<? extends IService> getAllDependencies() {
         services = new ArrayList<>();
+
         ServiceLoader<IService> loader = ServiceLoader.load(IService.class);
         for (IService implClass : loader) {
             System.out.println(implClass.getClass().getSimpleName());
             services.add(implClass);
             implClass.initialize();
         }
+
         return services;
     }
 

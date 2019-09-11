@@ -5,7 +5,8 @@ import com.melardev.xeytanj.gui.mediator.IUiMediator;
 import com.melardev.xeytanj.models.BuildClientInfoStructure;
 import com.melardev.xeytanj.services.IAppMessageProvider;
 import com.melardev.xeytanj.services.config.ConfigService;
-import com.melardev.xeytanj.services.ioc.SpiResolver;
+import com.melardev.xeytanj.services.ioc.DependencyResolverFactory;
+import com.melardev.xeytanj.services.ioc.IAppDependencyResolver;
 import com.melardev.xeytanj.support.MessageDialogFactory;
 
 import javax.swing.*;
@@ -17,8 +18,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 public class BuilderGUI extends JDialog implements ActionListener, ChangeListener, IGui<BuilderDialogListener> {
-    //private SpringBeansResolver loc;
-    private SpiResolver loc;
+
+    private IAppDependencyResolver loc;
     private JTextField txtHost;
     private JTextField txtPort;
     private JTextField txtKey;
@@ -45,7 +46,7 @@ public class BuilderGUI extends JDialog implements ActionListener, ChangeListene
     }
 
     public void display() {
-        loc = SpiResolver.getInstance();
+        loc = DependencyResolverFactory.getDependencyResolver();
         config = loc.lookup(ConfigService.class);
         GridBagLayout gridBagLayout = new GridBagLayout();
         gridBagLayout.columnWidths = new int[]{0, 73, 55, 0, 0, 90, 0, 35, 0, 0};

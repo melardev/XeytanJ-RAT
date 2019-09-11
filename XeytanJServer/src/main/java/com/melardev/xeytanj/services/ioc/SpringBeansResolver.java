@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Map;
 
 //TODO: Refactor this
-public class SpringBeansResolver implements IAppDependencyResolver {
+class SpringBeansResolver implements IAppDependencyResolver {
 
-    public static SpringBeansResolver self;
-    public AnnotationConfigApplicationContext ctx;
-    Map<String, IService> cache;
+    private static SpringBeansResolver self;
+    private AnnotationConfigApplicationContext ctx;
+    private Map<String, IService> cache;
 
     public synchronized static SpringBeansResolver getInstance() {
         if (self == null) {

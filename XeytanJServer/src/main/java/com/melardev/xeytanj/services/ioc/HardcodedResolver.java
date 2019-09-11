@@ -4,7 +4,7 @@ import com.melardev.xeytanj.services.IService;
 
 import java.util.List;
 
-public class HardcodedResolver implements IAppDependencyResolver {
+class HardcodedResolver implements IAppDependencyResolver {
     @Override
     public List<IService> getAllDependencies() {
         return null;

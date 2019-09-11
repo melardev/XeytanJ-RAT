@@ -24,7 +24,6 @@ import com.melardev.xeytanj.maps.MapsBrowser;
 import com.melardev.xeytanj.models.*;
 import com.melardev.xeytanj.preferences.GUIPreferences;
 import com.melardev.xeytanj.services.IAppMessageProvider;
-import com.melardev.xeytanj.services.ioc.SpiResolver;
 import com.melardev.xeytanj.services.logger.ILogger;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +40,7 @@ public class SwingMediator implements IUiMediator {
 
     private final UUID ROOT_ID = UUID.randomUUID();
 
-    private SpiResolver serviceLocator;
+
     private Map<UUID, List<WindowInfoStructure>> openedWindows;
 
     private IApplication application;
@@ -52,8 +51,6 @@ public class SwingMediator implements IUiMediator {
     public SwingMediator() {
         id = 0;
         openedWindows = new HashMap<>();
-
-        serviceLocator = SpiResolver.getInstance();
     }
 
     // Show () methods
