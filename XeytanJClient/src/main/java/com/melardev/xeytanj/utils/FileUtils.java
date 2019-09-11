@@ -1,6 +1,6 @@
 package com.melardev.xeytanj.utils;
 
-import com.melardev.xeytanj.XeytanClient;
+import com.melardev.xeytanj.XeytanJClient;
 
 import java.io.File;
 import java.io.IOException;
@@ -92,7 +92,7 @@ public class FileUtils {
 				File fout;
 				try {
 					fout = File.createTempFile(fileName, extension);
-					InputStream is = XeytanClient.class.getResourceAsStream(filePath);
+					InputStream is = XeytanJClient.class.getResourceAsStream(filePath);
 					Files.copy(is, Paths.get(fout.getAbsolutePath()), StandardCopyOption.REPLACE_EXISTING);
 					File renamed = new File(System.getProperty("java.io.tmpdir") + "/" + fileName + extension);
 					if(fout.renameTo(renamed))

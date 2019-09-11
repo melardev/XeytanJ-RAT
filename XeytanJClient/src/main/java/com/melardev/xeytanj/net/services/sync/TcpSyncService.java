@@ -1,6 +1,6 @@
 package com.melardev.xeytanj.net.services.sync;
 
-import com.melardev.xeytanj.XeytanClient;
+import com.melardev.xeytanj.XeytanJClient;
 import com.melardev.xeytanj.config.IConfigService;
 import com.melardev.xeytanj.logger.ConsoleLogger;
 import com.melardev.xeytanj.net.packets.Packet;
@@ -16,7 +16,7 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 
 public class TcpSyncService implements NetClientService {
-    private final XeytanClient app;
+    private final XeytanJClient app;
     private final ConsoleLogger logger;
     private final String host;
     private final int port;
@@ -26,8 +26,8 @@ public class TcpSyncService implements NetClientService {
     private Socket socket;
     private boolean running;
 
-    public TcpSyncService(XeytanClient xeytanClient, String host, int port, ConsoleLogger logger, IConfigService config) {
-        this.app = xeytanClient;
+    public TcpSyncService(XeytanJClient xeytanJClient, String host, int port, ConsoleLogger logger, IConfigService config) {
+        this.app = xeytanJClient;
         this.logger = logger;
         this.host = host;
         this.port = port;

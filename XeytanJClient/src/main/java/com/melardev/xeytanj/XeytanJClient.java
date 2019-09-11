@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class XeytanClient implements IApplication {
+public class XeytanJClient implements IApplication {
 
     private final String host;
     private final ConsoleLogger logger;
@@ -42,7 +42,7 @@ public class XeytanClient implements IApplication {
     private Map<SessionType, PacketHandler> openedSessions;
     private NetClientService netSyncService;
 
-    public XeytanClient() {
+    public XeytanJClient() {
         config = new ManifestConfigService();
         String host = config.getServerHost();
         String port = config.getServerPort();
@@ -60,7 +60,7 @@ public class XeytanClient implements IApplication {
 
 
     public static void main(String[] args) {
-        new XeytanClient().start();
+        new XeytanJClient().start();
     }
 
     public void start() {
@@ -71,9 +71,6 @@ public class XeytanClient implements IApplication {
 
 
         netSyncService = new TcpSyncService(this, this.host, this.port, this.logger, this.config);
-
-        // netSyncService = new ClientSelectService(this, this.host, this.port, this.logger, this.config);
-        // netSyncService = new AsyncCompletionHandlerNetService(this, this.host, this.port, this.logger, this.config);
         netSyncService.interact();
     }
 
